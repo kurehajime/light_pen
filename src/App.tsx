@@ -75,7 +75,7 @@ function App() {
         setError(loadError instanceof Error ? loadError.message : '画像の読み込みに失敗しました。')
       }
     },
-    [loadImage, resetCanvases, revokeDownloadUrl],
+    [loadImage, resetCanvases, revokePreviewUrl],
   )
 
   const getCanvasPoint = useCallback((event: React.PointerEvent<HTMLCanvasElement>) => {
@@ -145,7 +145,7 @@ function App() {
     if (!context) return
     context.clearRect(0, 0, drawCanvas.width, drawCanvas.height)
     revokePreviewUrl(null)
-  }, [revokeDownloadUrl])
+  }, [revokePreviewUrl])
 
   const buildGainmap = useCallback(() => {
     const drawCanvas = drawCanvasRef.current
