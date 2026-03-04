@@ -71,3 +71,14 @@ export default defineConfig([
   },
 ])
 ```
+
+## UltraHDR セットアップ
+
+このアプリはローカル依存として`libultrahdr-wasm`を利用します。
+
+```
+git clone https://github.com/MONOGRID/libultrahdr-wasm.git vendor/libultrahdr-wasm
+npm install
+```
+
+`vendor/libultrahdr-wasm`配下に`package.json`があることを確認してください。

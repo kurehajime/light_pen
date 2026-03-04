@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "libultrahdr-wasm": "file:vendor/libultrahdr-wasm",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
