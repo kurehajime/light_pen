@@ -33,7 +33,7 @@ jobs:
           sudo apt-get install -y meson ninja-build
 
       - name: Setup Emscripten
-        uses: emscripten-core/emsdk@v2
+        uses: emscripten-core/emsdk@main
         with:
           version: latest
 
