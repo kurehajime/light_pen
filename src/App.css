@@ -154,6 +154,13 @@ button:not(:disabled):hover {
   font-weight: 600;
 }
 
+.preview {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #29344f;
+  background: #0b1120;
+}
+
 .error {
   margin: 0;
   color: #f87171;

@@ -6,6 +6,7 @@ import { encodeUltraHDR } from './ultrahdr'
 function App() {
   const [imageName, setImageName] = useState<string | null>(null)
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isGenerating, setIsGenerating] = useState(false)
   const [brushSize, setBrushSize] = useState(16)
@@ -21,6 +22,12 @@ function App() {
 
   const revokeDownloadUrl = useCallback((nextUrl: string | null) => {
     setDownloadUrl((currentUrl) => {
+      if (currentUrl) {
+        URL.revokeObjectURL(currentUrl)
+      }
+      return nextUrl
+    })
+    setPreviewUrl((currentUrl) => {
       if (currentUrl) {
         URL.revokeObjectURL(currentUrl)
       }
@@ -177,7 +184,8 @@ function App() {
     try {
       const baseImage = baseContext.getImageData(0, 0, baseCanvas.width, baseCanvas.height)
       const blob = await encodeUltraHDR(baseImage, gainmap)
-      revokeDownloadUrl(URL.createObjectURL(blob))
+      const nextUrl = URL.createObjectURL(blob)
+      revokeDownloadUrl(nextUrl)
     } catch (encodeError) {
       setError(
         encodeError instanceof Error
@@ -247,6 +255,9 @@ function App() {
             <button type="button" onClick={handleGenerate} disabled={!hasImage || isGenerating}>
               {isGenerating ? '生成中…' : 'UltraHDRを生成'}
             </button>
+            {previewUrl && (
+              <img className="preview" src={previewUrl} alt="UltraHDR preview" />
+            )}
             {downloadUrl && (
               <a
                 className="download"
