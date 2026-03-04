@@ -5,7 +5,6 @@ import { encodeUltraHDR } from './ultrahdr'
 
 function App() {
   const [imageName, setImageName] = useState<string | null>(null)
-  const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isGenerating, setIsGenerating] = useState(false)
@@ -20,13 +19,7 @@ function App() {
     return canvas !== null && canvas.width > 0 && canvas.height > 0
   }, [imageName])
 
-  const revokeDownloadUrl = useCallback((nextUrl: string | null) => {
-    setDownloadUrl((currentUrl) => {
-      if (currentUrl) {
-        URL.revokeObjectURL(currentUrl)
-      }
-      return nextUrl
-    })
+  const revokePreviewUrl = useCallback((nextUrl: string | null) => {
     setPreviewUrl((currentUrl) => {
       if (currentUrl) {
         URL.revokeObjectURL(currentUrl)
@@ -66,7 +59,7 @@ function App() {
       const file = event.target.files?.[0]
       if (!file) return
       setError(null)
-      revokeDownloadUrl(null)
+      revokePreviewUrl(null)
       try {
         const image = await loadImage(file)
         resetCanvases(image.width, image.height)
@@ -151,7 +144,7 @@ function App() {
     const context = drawCanvas.getContext('2d')
     if (!context) return
     context.clearRect(0, 0, drawCanvas.width, drawCanvas.height)
-    revokeDownloadUrl(null)
+    revokePreviewUrl(null)
   }, [revokeDownloadUrl])
 
   const buildGainmap = useCallback(() => {
@@ -180,12 +173,12 @@ function App() {
     if (!gainmap) return
     setError(null)
     setIsGenerating(true)
-    revokeDownloadUrl(null)
+    revokePreviewUrl(null)
     try {
       const baseImage = baseContext.getImageData(0, 0, baseCanvas.width, baseCanvas.height)
       const blob = await encodeUltraHDR(baseImage, gainmap)
       const nextUrl = URL.createObjectURL(blob)
-      revokeDownloadUrl(nextUrl)
+      revokePreviewUrl(nextUrl)
     } catch (encodeError) {
       setError(
         encodeError instanceof Error
@@ -195,7 +188,7 @@ function App() {
     } finally {
       setIsGenerating(false)
     }
-  }, [buildGainmap, revokeDownloadUrl])
+  }, [buildGainmap, revokePreviewUrl])
 
   return (
     <div className="app">
