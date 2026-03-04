@@ -17,7 +17,10 @@ type UltraHDRModule = () => Promise<{
 }>
 
 const loadModule = async () => {
-  const moduleUrl = new URL('/ultrahdr/libultrahdr-esm.js', window.location.origin).href
+  const moduleUrl = new URL(
+    'ultrahdr/libultrahdr-esm.js',
+    new URL(import.meta.env.BASE_URL, window.location.origin),
+  ).href
   try {
     const loaded = (await import(/* @vite-ignore */ moduleUrl)) as Record<string, unknown>
     return loaded
