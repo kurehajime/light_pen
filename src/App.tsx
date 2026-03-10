@@ -6,6 +6,7 @@ import { encodeUltraHDR } from './ultrahdr'
 import hologramUrl from './assets/kira.png'
 
 type StrokeType = 'line' | 'heart'
+const DRAW_LAYER_PREVIEW_OPACITY = 0.7
 
 function App() {
   const [imageName, setImageName] = useState<string | null>(null)
@@ -17,6 +18,7 @@ function App() {
   const [canvasSize, setCanvasSize] = useState<{ width: number; height: number } | null>(null)
   const baseCanvasRef = useRef<HTMLCanvasElement | null>(null)
   const drawCanvasRef = useRef<HTMLCanvasElement | null>(null)
+  const fileInputRef = useRef<HTMLInputElement | null>(null)
   const heartImageRef = useRef<HTMLImageElement | null>(null)
   const isDrawingRef = useRef(false)
   const lastPointRef = useRef<{ x: number; y: number } | null>(null)
@@ -109,6 +111,7 @@ function App() {
     async (event: ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files?.[0]
       if (!file) return
+      event.target.value = ''
       setError(null)
       revokePreviewUrl(null)
       try {
@@ -129,6 +132,10 @@ function App() {
     },
     [loadImage, resetCanvases, revokePreviewUrl],
   )
+
+  const openFilePicker = useCallback(() => {
+    fileInputRef.current?.click()
+  }, [])
 
   const canvasStackStyle = useMemo<CSSProperties | undefined>(() => {
     if (!canvasSize) return undefined
@@ -180,16 +187,33 @@ function App() {
       const deltaY = to.y - from.y
       const distance = Math.hypot(deltaX, deltaY)
       const steps = Math.max(1, Math.ceil(distance / spacing))
-      const drawWidth = brushSize
-      const drawHeight = brushSize * (heartImage.naturalHeight / heartImage.naturalWidth)
+      const particleCount = Math.min(4, Math.max(1, Math.round(brushSize / 10)))
+      const spread = brushSize * 1
+      const aspect = heartImage.naturalHeight / heartImage.naturalWidth
+      context.save()
       for (let step = 0; step <= steps; step += 1) {
         const ratio = step / steps
         const x = from.x + deltaX * ratio
         const y = from.y + deltaY * ratio
-        context.globalAlpha = 0.95
-        context.drawImage(heartImage, x - drawWidth / 2, y - drawHeight / 2, drawWidth, drawHeight)
-        context.globalAlpha = 1
+        for (let particle = 0; particle < particleCount; particle += 1) {
+          const angle = Math.random() * Math.PI * 2
+          const distanceScale = Math.sqrt(Math.random()) * spread
+          const px = x + Math.cos(angle) * distanceScale
+          const py = y + Math.sin(angle) * distanceScale
+          const sizeScale = 0.1 + Math.random() * 0.8
+          const drawWidth = brushSize * sizeScale
+          const drawHeight = drawWidth * aspect
+          context.globalAlpha = 0.25 + Math.random() * 0.7
+          context.drawImage(
+            heartImage,
+            px - drawWidth / 2,
+            py - drawHeight / 2,
+            drawWidth,
+            drawHeight,
+          )
+        }
       }
+      context.restore()
     },
     [brushSize, strokeType],
   )
@@ -317,7 +341,7 @@ function App() {
           </p>
         </div>
         <label className="file">
-          <input type="file" accept="image/*" onChange={handleFileChange} />
+          <input ref={fileInputRef} type="file" accept="image/*" onChange={handleFileChange} />
           <span>画像をアップロード</span>
         </label>
       </header>
@@ -329,11 +353,20 @@ function App() {
             <canvas
               ref={drawCanvasRef}
               className="canvas canvas--draw"
+              style={{ opacity: DRAW_LAYER_PREVIEW_OPACITY }}
               onPointerDown={handlePointerDown}
               onPointerMove={handlePointerMove}
               onPointerUp={handlePointerUp}
               onPointerLeave={handlePointerUp}
             />
+            {!hasImage && (
+              <button type="button" className="canvas-upload" onClick={openFilePicker}>
+                <span className="canvas-upload__icon" aria-hidden="true">
+                  +
+                </span>
+                <span className="canvas-upload__label">画像をアップロード</span>
+              </button>
+            )}
           </div>
           {!hasImage && <p className="hint">画像を選択するとキャンバスが表示されます。</p>}
         </div>
