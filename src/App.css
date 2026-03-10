@@ -1,7 +1,7 @@
 .app {
   width: min(100%, 780px);
   margin: 0 auto;
-  padding: 1.5rem 2rem 2.5rem;
+  padding: 0.35rem 2rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -11,15 +11,11 @@
   display: none;
 }
 
-.app__header {
-  padding-top: 0.25rem;
-}
-
 .app__header h1 {
   margin: 0;
   color: #8b4d7b;
   font-family: 'Kaisei Opti', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  font-size: clamp(2.3rem, 7vw, 3.5rem);
+  font-size: clamp(2rem, 6vw, 3rem);
   line-height: 1.05;
   letter-spacing: 0.03em;
 }
@@ -82,23 +78,15 @@
   line-height: 1;
 }
 
+.canvas-upload__plus {
+  display: block;
+  transform: translateY(-0.08em);
+}
+
 .canvas-upload__label {
   font-size: 1rem;
   font-weight: 700;
   color: #74426a;
-}
-
-.image-area__meta {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.75rem;
-}
-
-.image-area__name {
-  margin: 0;
-  color: var(--text-soft);
-  font-size: 0.94rem;
 }
 
 .control-board {
@@ -118,7 +106,7 @@
 
 .control-panel--mode {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.55rem;
   align-items: stretch;
 }

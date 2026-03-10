@@ -457,16 +457,6 @@ function App() {
     event.currentTarget.releasePointerCapture(event.pointerId)
   }, [])
 
-  const handleClear = useCallback(() => {
-    const drawCanvas = drawCanvasRef.current
-    if (!drawCanvas) return
-    const context = drawCanvas.getContext('2d')
-    if (!context) return
-    pushUndoSnapshot()
-    context.clearRect(0, 0, drawCanvas.width, drawCanvas.height)
-    revokePreviewUrl(null)
-  }, [pushUndoSnapshot, revokePreviewUrl])
-
   const buildGainmap = useCallback(() => {
     const drawCanvas = drawCanvasRef.current
     if (!drawCanvas) return null
@@ -593,14 +583,11 @@ function App() {
           {!hasImage && (
             <button type="button" className="canvas-upload" onClick={openFilePicker}>
               <span className="canvas-upload__icon" aria-hidden="true">
-                +
+                <span className="canvas-upload__plus">+</span>
               </span>
               <span className="canvas-upload__label">画像をえらぶ</span>
             </button>
           )}
-        </div>
-        <div className="image-area__meta">
-          <p className="image-area__name">{imageName ?? '画像はまだ読み込まれていません'}</p>
         </div>
       </section>
 
@@ -613,7 +600,7 @@ function App() {
               alt=""
               aria-hidden="true"
             />
-            <span className="mode-button__label">よみこみ</span>
+            <span className="mode-button__label">読込</span>
           </button>
           <button
             type="button"
@@ -633,7 +620,7 @@ function App() {
             }}
           >
             <img className="mode-button__icon" src={`${import.meta.env.BASE_URL}stamp.svg`} alt="" aria-hidden="true" />
-            <span className="mode-button__label">スタンプ</span>
+            <span className="mode-button__label">判子</span>
           </button>
           <button
             type="button"
@@ -644,21 +631,7 @@ function App() {
             disabled={!hasImage}
           >
             <img className="mode-button__icon" src={`${import.meta.env.BASE_URL}effect.svg`} alt="" aria-hidden="true" />
-            <span className="mode-button__label">エフェクト</span>
-          </button>
-          <button
-            type="button"
-            className="mode-button mode-button--action"
-            onClick={handleClear}
-            disabled={!hasImage}
-          >
-            <img
-              className="mode-button__icon"
-              src={`${import.meta.env.BASE_URL}clear.svg`}
-              alt=""
-              aria-hidden="true"
-            />
-            <span className="mode-button__label">クリア</span>
+            <span className="mode-button__label">キラ</span>
           </button>
           <button
             type="button"
@@ -666,7 +639,13 @@ function App() {
             onClick={handleUndo}
             disabled={!hasImage || undoCount === 0}
           >
-            <span className="mode-button__label">Undo</span>
+            <img
+              className="mode-button__icon"
+              src={`${import.meta.env.BASE_URL}undo.svg`}
+              alt=""
+              aria-hidden="true"
+            />
+            <span className="mode-button__label">戻す</span>
           </button>
           <button
             type="button"
@@ -681,7 +660,7 @@ function App() {
               aria-hidden="true"
             />
             <span className="mode-button__label">
-              {isGenerating ? 'さくせい中' : 'さくせい'}
+              {isGenerating ? '作成中' : '作成'}
             </span>
           </button>
         </div>
