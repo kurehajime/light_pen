@@ -210,6 +210,32 @@ function App() {
     }
   }, [canvasSize])
 
+  const sizeBounds = useMemo(() => {
+    if (!canvasSize) {
+      return {
+        min: 4,
+        max: 150,
+      }
+    }
+    const min = Math.max(1, Math.round(canvasSize.width / 200))
+    const max = Math.max(min, Math.round(canvasSize.width / 2))
+    return { min, max }
+  }, [canvasSize])
+
+  useEffect(() => {
+    if (!canvasSize) return
+    const defaultPenSize = Math.min(
+      sizeBounds.max,
+      Math.max(sizeBounds.min, Math.round(canvasSize.width / 40)),
+    )
+    const defaultStampSize = Math.min(
+      sizeBounds.max,
+      Math.max(sizeBounds.min, Math.round(canvasSize.width / 10)),
+    )
+    setPenSize(defaultPenSize)
+    setStampSize(defaultStampSize)
+  }, [canvasSize, sizeBounds])
+
   const getCanvasPoint = useCallback((event: React.PointerEvent<HTMLCanvasElement>) => {
     const canvas = drawCanvasRef.current
     if (!canvas) return null
@@ -667,8 +693,8 @@ function App() {
                 <span>線の太さ</span>
                 <input
                   type="range"
-                  min={4}
-                  max={150}
+                  min={sizeBounds.min}
+                  max={sizeBounds.max}
                   value={penSize}
                   onChange={(event) => setPenSize(Number(event.target.value))}
                 />
@@ -734,8 +760,8 @@ function App() {
                 <span>スタンプの大きさ</span>
                 <input
                   type="range"
-                  min={12}
-                  max={150}
+                  min={sizeBounds.min}
+                  max={sizeBounds.max}
                   value={stampSize}
                   onChange={(event) => setStampSize(Number(event.target.value))}
                 />
