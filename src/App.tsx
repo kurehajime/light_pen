@@ -335,6 +335,11 @@ function App() {
     <div className="app">
       <header className="app__header">
         <div>
+          <div className="app__stickers" aria-hidden="true">
+            <span className="sticker sticker--pink">HEART</span>
+            <span className="sticker sticker--mint">CLOVER</span>
+            <span className="sticker sticker--lemon">KIRA</span>
+          </div>
           <h1>Light Pen UltraHDR</h1>
           <p className="app__subtitle">
             画像を読み込んで線を引き、UltraHDRで書き出します。
@@ -373,6 +378,7 @@ function App() {
 
         <aside className="workspace__controls">
           <div className="panel">
+            <p className="panel__tag">DECORATE</p>
             <h2>描画設定</h2>
             <label className="slider">
               <span>ペンの太さ</span>
@@ -417,6 +423,7 @@ function App() {
           </div>
 
           <div className="panel">
+            <p className="panel__tag">PREVIEW</p>
             <h2>UltraHDR</h2>
             <p className="panel__hint">線にホログラム模様を適用して輝度を作ります。</p>
             <button type="button" onClick={handleGenerate} disabled={!hasImage || isGenerating}>
