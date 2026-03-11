@@ -4,22 +4,22 @@
     0 6px 0 #e5a8c8,
     0 11px 18px rgba(229, 168, 200, 0.34);
   --pink-shadow-stack-hover:
-    0 7px 0 #e5a8c8,
-    0 13px 20px rgba(229, 168, 200, 0.4);
+    0 3px 0 #e5a8c8,
+    0 7px 12px rgba(229, 168, 200, 0.28);
   --main-edge: #e364a0;
   --main-shadow-stack:
     0 6px 0 #e364a0,
     0 11px 18px rgba(227, 100, 160, 0.34);
   --main-shadow-stack-hover:
-    0 7px 0 #d85793,
-    0 13px 20px rgba(216, 87, 147, 0.4);
+    0 3px 0 #d85793,
+    0 7px 12px rgba(216, 87, 147, 0.28);
   --lemon-edge: #d5b14e;
   --lemon-shadow-stack:
     0 6px 0 #d5b14e,
     0 11px 18px rgba(213, 177, 78, 0.34);
   --lemon-shadow-stack-hover:
-    0 7px 0 #c79f36,
-    0 13px 20px rgba(199, 159, 54, 0.38);
+    0 3px 0 #c79f36,
+    0 7px 12px rgba(199, 159, 54, 0.26);
   --pink-pressed-bg: #ffd8eb;
   --pink-pressed-edge: #d97daa;
   --pink-pressed-shadow-stack:
@@ -31,12 +31,19 @@
     0 6px 0 #89cdb5,
     0 11px 18px rgba(137, 205, 181, 0.34);
   --mint-shadow-stack-hover:
-    0 7px 0 #78bea6,
-    0 13px 20px rgba(120, 190, 166, 0.38);
+    0 3px 0 #78bea6,
+    0 7px 12px rgba(120, 190, 166, 0.26);
   --disabled-edge: #b79cad;
   --disabled-shadow-stack:
     0 4px 0 #b79cad,
     0 8px 14px rgba(183, 156, 173, 0.2);
+  --button-soft-gradient:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.18) 34%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
   width: min(100%, 780px);
   margin: 0 auto;
   padding: 0.35rem 2rem 2.5rem;
@@ -202,7 +209,8 @@
   padding: 0.4rem 0.2rem;
   border-radius: 16px;
   border: 3px solid var(--button-edge-color);
-  background: var(--button-background);
+  background-color: var(--button-background);
+  background-image: var(--button-soft-gradient);
   color: var(--text-main);
 }
 
@@ -231,7 +239,8 @@
 }
 
 .mode-button--joined:not(.mode-button--active):hover {
-  transform: translateY(-1px);
+  transform: translateY(2px);
+  background-color: var(--button-background-hover);
   box-shadow: var(--button-shadow-stack-hover);
 }
 
@@ -255,6 +264,30 @@
   padding: 0.4rem 0.2rem;
   border-radius: 16px;
   color: #74426a;
+}
+
+.mode-button--action-emphasis {
+  --button-background: var(--button-main);
+  --button-background-hover: var(--button-main-strong);
+  --button-edge-color: var(--main-edge);
+  --button-shadow-stack: var(--main-shadow-stack);
+  --button-shadow-stack-hover: var(--main-shadow-stack-hover);
+  --button-soft-gradient:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.08) 34%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  color: #ffffff;
+}
+
+.mode-button--action-emphasis.mode-button--primary {
+  color: #ffffff;
+}
+
+.mode-button--action-emphasis .mode-button__icon {
+  filter: brightness(0) invert(1);
 }
 
 .mode-button--primary {
@@ -330,7 +363,8 @@
   min-height: 2.9rem;
   border-radius: 16px;
   border: 3px solid var(--button-edge-color);
-  background: var(--button-background);
+  background-color: var(--button-background);
+  background-image: var(--button-soft-gradient);
   color: var(--text-main);
   font-weight: 700;
   box-shadow: var(--button-shadow-stack);
@@ -356,8 +390,8 @@
 }
 
 .choice-group__option:not(.choice-group__option--active):hover {
-  transform: translateY(-1px);
-  background: var(--button-background-hover);
+  transform: translateY(2px);
+  background-color: var(--button-background-hover);
   box-shadow: var(--button-shadow-stack-hover);
 }
 
@@ -374,7 +408,8 @@
   min-height: 3rem;
   border-radius: 16px;
   border: 3px solid var(--button-edge-color);
-  background: var(--button-background);
+  background-color: var(--button-background);
+  background-image: var(--button-soft-gradient);
   color: var(--text-main);
   box-shadow: var(--button-shadow-stack);
   transition:
@@ -423,7 +458,8 @@ button {
   --button-shadow-stack-hover: var(--main-shadow-stack-hover);
   border-radius: 16px;
   border: 3px solid var(--button-edge-color);
-  background: var(--button-background);
+  background-color: var(--button-background);
+  background-image: var(--button-soft-gradient);
   color: #ffffff;
   font-family: inherit;
   font-size: 1rem;
@@ -443,9 +479,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
-button:not(:disabled):hover {
-  background: var(--button-background-hover);
+button:not(:disabled):not(.mode-button--active):not(.choice-group__action--active):hover {
+  background-color: var(--button-background-hover);
   box-shadow: var(--button-shadow-stack-hover);
+  transform: translateY(2px);
 }
 
 .subtle-button {

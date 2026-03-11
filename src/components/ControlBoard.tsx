@@ -48,7 +48,11 @@ export function ControlBoard({
   return (
     <section className="control-board">
       <div className="control-panel control-panel--mode">
-        <button type="button" className="mode-button mode-button--action" onClick={onOpenFilePicker}>
+        <button
+          type="button"
+          className={`mode-button mode-button--action${!hasImage ? ' mode-button--action-emphasis' : ''}`}
+          onClick={onOpenFilePicker}
+        >
           <img
             className="mode-button__icon"
             src={`${import.meta.env.BASE_URL}image.svg`}
@@ -120,7 +124,7 @@ export function ControlBoard({
         </button>
         <button
           type="button"
-          className="mode-button mode-button--action mode-button--primary"
+          className={`mode-button mode-button--action mode-button--primary${hasImage && !isGenerating ? ' mode-button--action-emphasis' : ''}`}
           onClick={onGenerate}
           disabled={!hasImage || isGenerating}
         >
