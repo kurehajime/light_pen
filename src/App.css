@@ -20,11 +20,12 @@
   --lemon-shadow-stack-hover:
     0 7px 0 #c79f36,
     0 13px 20px rgba(199, 159, 54, 0.38);
-  --lavender-edge: #b49ce3;
-  --lavender-shadow-stack:
-    inset 0 4px 8px rgba(122, 89, 177, 0.22),
+  --pink-pressed-bg: #ffd8eb;
+  --pink-pressed-edge: #d97daa;
+  --pink-pressed-shadow-stack:
+    inset 0 4px 8px rgba(168, 96, 136, 0.2),
     inset 0 -2px 0 rgba(255, 255, 255, 0.5),
-    0 2px 0 #b49ce3;
+    0 2px 0 #d97daa;
   --mint-edge: #89cdb5;
   --mint-shadow-stack:
     0 6px 0 #89cdb5,
@@ -248,28 +249,28 @@
 }
 
 .mode-button--action {
-  --button-background: var(--bg-lemon);
-  --button-background-hover: #ffe987;
-  --button-edge-color: var(--lemon-edge);
-  --button-shadow-stack: var(--lemon-shadow-stack);
-  --button-shadow-stack-hover: var(--lemon-shadow-stack-hover);
+  width: auto;
+  aspect-ratio: auto;
+  min-height: 3.3rem;
+  padding: 0.4rem 0.2rem;
+  border-radius: 16px;
   color: #74426a;
 }
 
 .mode-button--primary {
-  --button-background: var(--bg-pink);
-  --button-background-hover: var(--bg-rose);
-  --button-edge-color: var(--main-edge);
-  --button-shadow-stack: var(--main-shadow-stack);
-  --button-shadow-stack-hover: var(--main-shadow-stack-hover);
+  color: #74426a;
+}
+
+.mode-button--action .mode-button__label {
+  font-size: 0.72rem;
 }
 
 .mode-button--active {
-  --button-background: var(--bg-lavender);
-  --button-background-hover: var(--bg-lavender);
-  --button-edge-color: var(--lavender-edge);
-  --button-shadow-stack: var(--lavender-shadow-stack);
-  --button-shadow-stack-hover: var(--lavender-shadow-stack);
+  --button-background: var(--pink-pressed-bg);
+  --button-background-hover: var(--pink-pressed-bg);
+  --button-edge-color: var(--pink-pressed-edge);
+  --button-shadow-stack: var(--pink-pressed-shadow-stack);
+  --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
   transform: translateY(4px);
   border-color: var(--button-edge-color);
   background: var(--button-background);
@@ -318,8 +319,10 @@
 
 .choice-group__option {
   --button-background: #fff6fa;
+  --button-background-hover: #fff0f7;
   --button-edge-color: var(--pink-edge);
   --button-shadow-stack: var(--pink-shadow-stack);
+  --button-shadow-stack-hover: var(--pink-shadow-stack-hover);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -331,16 +334,31 @@
   color: var(--text-main);
   font-weight: 700;
   box-shadow: var(--button-shadow-stack);
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.2s ease;
 }
 
 .choice-group__option--active {
-  --button-background: var(--bg-mint);
-  --button-edge-color: var(--mint-edge);
-  --button-shadow-stack: var(--mint-shadow-stack);
+  --button-background: var(--pink-pressed-bg);
+  --button-background-hover: var(--pink-pressed-bg);
+  --button-edge-color: var(--pink-pressed-edge);
+  --button-shadow-stack: var(--pink-pressed-shadow-stack);
+  --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
+  transform: translateY(4px);
+  z-index: 1;
 }
 
 .choice-group__option input {
   display: none;
+}
+
+.choice-group__option:not(.choice-group__option--active):hover {
+  transform: translateY(-1px);
+  background: var(--button-background-hover);
+  box-shadow: var(--button-shadow-stack-hover);
 }
 
 .choice-group__action {
@@ -359,14 +377,19 @@
   background: var(--button-background);
   color: var(--text-main);
   box-shadow: var(--button-shadow-stack);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.2s ease;
 }
 
 .choice-group__action--active {
-  --button-background: var(--bg-mint);
-  --button-background-hover: var(--bg-mint);
-  --button-edge-color: var(--mint-edge);
-  --button-shadow-stack: var(--mint-shadow-stack);
-  --button-shadow-stack-hover: var(--mint-shadow-stack-hover);
+  --button-background: var(--pink-pressed-bg);
+  --button-background-hover: var(--pink-pressed-bg);
+  --button-edge-color: var(--pink-pressed-edge);
+  --button-shadow-stack: var(--pink-pressed-shadow-stack);
+  --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
+  transform: translateY(4px);
 }
 
 .choice-group__icon {
