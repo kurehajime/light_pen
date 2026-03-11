@@ -129,7 +129,7 @@
 .canvas-intro-layer {
   position: relative;
   z-index: 2;
-  padding: clamp(1rem, 4vw, 1.6rem);
+  padding: clamp(0.35rem, 1.6vw, 0.65rem);
 }
 
 .image-intro {
@@ -156,7 +156,7 @@
 
 .image-intro__card {
   margin: 0;
-  padding: 0.55rem;
+  padding: 0.2rem;
   border-radius: 24px;
   border: 3px solid #f3bdd8;
   background: #fffdfd;
@@ -185,8 +185,7 @@
 .image-intro__arrow {
   width: 2.5rem;
   justify-self: center;
-  opacity: 0.64;
-  filter: saturate(0.6);
+  opacity: 0.92;
   transform: rotate(90deg);
 }
 
