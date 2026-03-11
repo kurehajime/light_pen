@@ -1,4 +1,5 @@
 import type { CSSProperties, PointerEventHandler, RefObject } from 'react'
+import { ImageIntro } from './ImageIntro'
 
 type ImageCanvasProps = {
   baseCanvasRef: RefObject<HTMLCanvasElement | null>
@@ -25,24 +26,25 @@ export function ImageCanvas({
 }: ImageCanvasProps) {
   return (
     <section className="image-area">
-      <div className={`canvas-stack${hasImage ? ' canvas-stack--ready' : ''}`} style={canvasStackStyle}>
-        <canvas ref={baseCanvasRef} className="canvas" />
-        <canvas
-          ref={drawCanvasRef}
-          className="canvas canvas--draw"
-          style={{ opacity: previewOpacity }}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={onPointerUp}
-          onPointerLeave={onPointerUp}
-        />
-        {!hasImage && (
-          <button type="button" className="canvas-upload" onClick={onOpenFilePicker}>
-            <span className="canvas-upload__icon" aria-hidden="true">
-              <span className="canvas-upload__plus">+</span>
-            </span>
-            <span className="canvas-upload__label">画像をえらぶ</span>
-          </button>
+      <div
+        className={`canvas-stack${hasImage ? ' canvas-stack--ready' : ' canvas-stack--intro'}`}
+        style={canvasStackStyle}
+      >
+        {hasImage ? (
+          <>
+            <canvas ref={baseCanvasRef} className="canvas" />
+            <canvas
+              ref={drawCanvasRef}
+              className="canvas canvas--draw"
+              style={{ opacity: previewOpacity }}
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerLeave={onPointerUp}
+            />
+          </>
+        ) : (
+          <ImageIntro onOpenFilePicker={onOpenFilePicker} />
         )}
       </div>
     </section>
