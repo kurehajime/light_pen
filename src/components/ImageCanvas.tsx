@@ -30,21 +30,20 @@ export function ImageCanvas({
         className={`canvas-stack${hasImage ? ' canvas-stack--ready' : ' canvas-stack--intro'}`}
         style={canvasStackStyle}
       >
-        {hasImage ? (
-          <>
-            <canvas ref={baseCanvasRef} className="canvas" />
-            <canvas
-              ref={drawCanvasRef}
-              className="canvas canvas--draw"
-              style={{ opacity: previewOpacity }}
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={onPointerUp}
-              onPointerLeave={onPointerUp}
-            />
-          </>
-        ) : (
-          <ImageIntro onOpenFilePicker={onOpenFilePicker} />
+        <canvas ref={baseCanvasRef} className="canvas" />
+        <canvas
+          ref={drawCanvasRef}
+          className="canvas canvas--draw"
+          style={{ opacity: previewOpacity }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerLeave={onPointerUp}
+        />
+        {!hasImage && (
+          <div className="canvas-intro-layer">
+            <ImageIntro onOpenFilePicker={onOpenFilePicker} />
+          </div>
         )}
       </div>
     </section>
