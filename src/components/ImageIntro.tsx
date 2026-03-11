@@ -7,12 +7,12 @@ export function ImageIntro({ onOpenFilePicker }: ImageIntroProps) {
 
   return (
     <div className="image-intro">
-      <p className="image-intro__lead">画像をキラキラにデコろう！</p>
+      <p className="image-intro__lead">キラキラ写真を作ろう！</p>
 
       <div className="image-intro__examples" aria-label="ビフォーアフターのイメージ">
         <figure className="image-intro__card">
           <img className="image-intro__image" src={`${assetBase}before.jpg`} alt="加工前のサンプル画像" />
-          <figcaption className="image-intro__caption">元画像</figcaption>
+          <figcaption className="image-intro__caption">元写真</figcaption>
         </figure>
 
         <img className="image-intro__arrow" src={`${assetBase}arrow.svg`} alt="" aria-hidden="true" />
