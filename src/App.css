@@ -22,15 +22,8 @@
   width: clamp(0.95rem, 2.5vw, 1.3rem);
   height: clamp(0.95rem, 2.5vw, 1.3rem);
   flex: 0 0 auto;
-  background-color: currentColor;
-  -webkit-mask-image: url('/kira.svg');
-  mask-image: url('/kira.svg');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
+  border-radius: 4px;
+  object-fit: cover;
 }
 
 .app__header h1 {
@@ -40,6 +33,7 @@
   font-size: clamp(1rem, 3vw, 1.5rem);
   line-height: 1.05;
   letter-spacing: 0.03em;
+  transform: translateY(-0.06em);
 }
 
 .image-area {
@@ -341,6 +335,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  min-height: 15.5rem;
   border-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
