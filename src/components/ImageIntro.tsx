@@ -15,7 +15,7 @@ export function ImageIntro({ onOpenFilePicker }: ImageIntroProps) {
           <figcaption className="image-intro__caption">元写真</figcaption>
         </figure>
 
-        <img className="image-intro__arrow" src={`${assetBase}arrow.svg`} alt="" aria-hidden="true" />
+        <span className="image-intro__arrow" aria-hidden="true" />
 
         <div className="image-intro__after-group">
           <figure className="image-intro__card image-intro__card--after">

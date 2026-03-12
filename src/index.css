@@ -2,8 +2,8 @@
   font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Hiragino Sans', 'Yu Gothic', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #74426a;
-  background-color: #fff7fb;
+  color: var(--text-main);
+  background-color: var(--bg-main);
   --bg-main: #fff7fb;
   --bg-panel: #fffdfd;
   --bg-pink: #ffd8eb;
@@ -11,12 +11,98 @@
   --bg-mint: #cffff0;
   --bg-lemon: #fff1a8;
   --bg-lavender: #ead8ff;
+  --bg-shell: #fff9fc;
+  --bg-shell-strong: #fff2f8;
+  --bg-soft-pink: #fff6fa;
+  --bg-soft-pink-hover: #fff0f7;
+  --bg-canvas: #ffffff;
   --text-main: #74426a;
   --text-soft: #ad76a0;
+  --text-title: #8b4d7b;
+  --text-intro-lead: #91507f;
+  --text-caption: #a65d8c;
+  --text-inverse: #ffffff;
   --panel-border: #f4a8cf;
+  --panel-border-strong: #f3a8cd;
+  --panel-border-soft: #f3bdd8;
   --button-main: #ff82bb;
   --button-main-strong: #ff5da7;
   --button-disabled: #dcbecf;
+  --button-edge-pink: #e5a8c8;
+  --button-edge-main: #e364a0;
+  --button-edge-main-hover: #d85793;
+  --button-edge-lemon: #d5b14e;
+  --button-edge-lemon-hover: #c79f36;
+  --button-edge-pressed: #d97daa;
+  --button-edge-mint: #89cdb5;
+  --button-edge-mint-hover: #78bea6;
+  --button-edge-disabled: #b79cad;
+  --button-shadow-pink: rgba(229, 168, 200, 0.34);
+  --button-shadow-pink-hover: rgba(229, 168, 200, 0.28);
+  --button-shadow-main: rgba(227, 100, 160, 0.34);
+  --button-shadow-main-hover: rgba(216, 87, 147, 0.28);
+  --button-shadow-lemon: rgba(213, 177, 78, 0.34);
+  --button-shadow-lemon-hover: rgba(199, 159, 54, 0.26);
+  --button-shadow-pressed: rgba(168, 96, 136, 0.2);
+  --button-shadow-mint: rgba(137, 205, 181, 0.34);
+  --button-shadow-mint-hover: rgba(120, 190, 166, 0.26);
+  --button-shadow-disabled: rgba(183, 156, 173, 0.2);
+  --pink-shadow-stack:
+    0 6px 0 var(--button-edge-pink),
+    0 11px 18px var(--button-shadow-pink);
+  --pink-shadow-stack-hover:
+    0 3px 0 var(--button-edge-pink),
+    0 7px 12px var(--button-shadow-pink-hover);
+  --main-shadow-stack:
+    0 6px 0 var(--button-edge-main),
+    0 11px 18px var(--button-shadow-main);
+  --main-shadow-stack-hover:
+    0 3px 0 var(--button-edge-main-hover),
+    0 7px 12px var(--button-shadow-main-hover);
+  --lemon-shadow-stack:
+    0 6px 0 var(--button-edge-lemon),
+    0 11px 18px var(--button-shadow-lemon);
+  --lemon-shadow-stack-hover:
+    0 3px 0 var(--button-edge-lemon-hover),
+    0 7px 12px var(--button-shadow-lemon-hover);
+  --pink-pressed-bg: var(--bg-pink);
+  --pink-pressed-shadow-stack:
+    inset 0 4px 8px var(--button-shadow-pressed),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.5),
+    0 2px 0 var(--button-edge-pressed);
+  --mint-shadow-stack:
+    0 6px 0 var(--button-edge-mint),
+    0 11px 18px var(--button-shadow-mint);
+  --mint-shadow-stack-hover:
+    0 3px 0 var(--button-edge-mint-hover),
+    0 7px 12px var(--button-shadow-mint-hover);
+  --disabled-shadow-stack:
+    0 4px 0 var(--button-edge-disabled),
+    0 8px 14px var(--button-shadow-disabled);
+  --button-soft-gradient:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.18) 34%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  --button-soft-gradient-strong:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.08) 34%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  --intro-shell-background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0) 56%),
+    linear-gradient(180deg, var(--bg-shell) 0%, var(--bg-shell-strong) 100%);
+  --intro-card-shadow:
+    inset 0 3px 0 rgba(255, 255, 255, 0.9),
+    0 6px 14px rgba(229, 168, 200, 0.18);
+  --arrow-accent: #c24d86;
+  --modal-backdrop: rgba(116, 66, 106, 0.45);
+  --input-accent: #ff6eb3;
+  --error-accent: #d65a88;
   --line-soft: #ffc5df;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
