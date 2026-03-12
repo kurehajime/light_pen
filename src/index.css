@@ -7,15 +7,11 @@
   --bg-main: #fff7fb;
   --bg-panel: #fffdfd;
   --bg-pink: #ffd8eb;
-  --bg-shell: #fff9fc;
-  --bg-shell-strong: #fff2f8;
   --bg-soft-pink: #fff6fa;
   --bg-soft-pink-hover: #fff0f7;
   --bg-canvas: #ffffff;
   --text-main: #74426a;
-  --text-title: #8b4d7b;
-  --text-intro-lead: #91507f;
-  --text-caption: #a65d8c;
+  --text-accent: #8b4d7b;
   --text-inverse: var(--bg-canvas);
   --panel-border-strong: #f3a8cd;
   --panel-border-soft: #f3bdd8;
@@ -25,7 +21,6 @@
   --button-edge-pink: #e5a8c8;
   --button-edge-main: #e364a0;
   --button-edge-main-hover: #d85793;
-  --button-edge-pressed: #d97daa;
   --button-edge-disabled: #b79cad;
   --button-shadow-pink: rgba(229, 168, 200, 0.34);
   --button-shadow-pink-hover: rgba(229, 168, 200, 0.28);
@@ -48,7 +43,7 @@
   --pink-pressed-shadow-stack:
     inset 0 4px 8px var(--button-shadow-pressed),
     inset 0 -2px 0 rgba(255, 255, 255, 0.5),
-    0 2px 0 var(--button-edge-pressed);
+    0 2px 0 var(--button-edge-main-hover);
   --disabled-shadow-stack:
     0 4px 0 var(--button-edge-disabled),
     0 8px 14px var(--button-shadow-disabled);
@@ -68,14 +63,14 @@
     );
   --intro-shell-background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0) 56%),
-    linear-gradient(180deg, var(--bg-shell) 0%, var(--bg-shell-strong) 100%);
+    linear-gradient(180deg, var(--bg-soft-pink) 0%, var(--bg-soft-pink-hover) 100%);
   --intro-card-shadow:
     inset 0 3px 0 rgba(255, 255, 255, 0.9),
     0 6px 14px rgba(229, 168, 200, 0.18);
-  --arrow-accent: #c24d86;
+  --arrow-accent: var(--button-edge-main-hover);
   --modal-backdrop: rgba(116, 66, 106, 0.45);
-  --input-accent: #ff6eb3;
-  --error-accent: #d65a88;
+  --input-accent: var(--button-main-strong);
+  --error-accent: var(--button-edge-main-hover);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

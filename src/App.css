@@ -15,7 +15,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.28rem;
-  color: var(--text-title);
+  color: var(--text-accent);
 }
 
 .app__title-icon {
@@ -97,7 +97,7 @@
   text-align: center;
   font-size: clamp(0.98rem, 2.8vw, 1.12rem);
   font-weight: 700;
-  color: var(--text-intro-lead);
+  color: var(--text-accent);
 }
 
 .image-intro__examples {
@@ -130,7 +130,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--text-caption);
+  color: var(--text-accent);
 }
 
 .image-intro__arrow {
@@ -327,7 +327,7 @@
 .mode-button--active {
   --button-background: var(--bg-pink);
   --button-background-hover: var(--bg-pink);
-  --button-edge-color: var(--button-edge-pressed);
+  --button-edge-color: var(--button-edge-main-hover);
   --button-shadow-stack: var(--pink-pressed-shadow-stack);
   --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
   transform: translateY(4px);
@@ -404,7 +404,7 @@
 .choice-group__option--active {
   --button-background: var(--bg-pink);
   --button-background-hover: var(--bg-pink);
-  --button-edge-color: var(--button-edge-pressed);
+  --button-edge-color: var(--button-edge-main-hover);
   --button-shadow-stack: var(--pink-pressed-shadow-stack);
   --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
   transform: translateY(4px);
@@ -447,7 +447,7 @@
 .choice-group__action--active {
   --button-background: var(--bg-pink);
   --button-background-hover: var(--bg-pink);
-  --button-edge-color: var(--button-edge-pressed);
+  --button-edge-color: var(--button-edge-main-hover);
   --button-shadow-stack: var(--pink-pressed-shadow-stack);
   --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
   transform: translateY(4px);
@@ -520,7 +520,7 @@ button:not(:disabled):not(.mode-button--active):not(.choice-group__action--activ
   min-height: 2.5rem;
   padding: 0.45rem 0.9rem;
   border-radius: 14px;
-  color: var(--text-title);
+  color: var(--text-accent);
 }
 
 .subtle-button--share {
@@ -568,7 +568,7 @@ button:not(:disabled):not(.mode-button--active):not(.choice-group__action--activ
 
 .preview-modal__header h2 {
   margin: 0;
-  color: var(--text-title);
+  color: var(--text-accent);
   font-size: 1.1rem;
   text-align: center;
 }
