@@ -31,7 +31,7 @@ export function ImageIntro({ isHdrSupported, onOpenFilePicker }: ImageIntroProps
       </div>
 
       {isHdrSupported === false && (
-        <p className="image-intro__notice">※キラキラはHDR対応端末でのみ表示されます。あなたの環境はHDRに対応していないようです</p>
+        <p className="image-intro__notice">※あなたの表示端末はキラキラ画像の表示(HDR)に対応していないようです。iPhone等で開いてみてください</p>
       )}
 
       <button type="button" className="image-intro__button" onClick={onOpenFilePicker}>
