@@ -446,9 +446,11 @@ button,
   --button-shadow-stack-hover: var(--pink-shadow-stack-hover);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 0.7rem;
   min-width: 0;
   min-height: 2.9rem;
+  padding: 0.65rem 0.95rem;
   border-radius: 16px;
   border: 3px solid var(--button-edge-color);
   background-color: var(--button-background);
@@ -463,6 +465,17 @@ button,
     background-color 0.2s ease;
 }
 
+.choice-group__option::before,
+.choice-group__action::before {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+}
+
 .choice-group__option--active {
   --button-background: var(--text-cool-accent);
   --button-background-hover: var(--text-cool-accent);
@@ -474,8 +487,23 @@ button,
   z-index: 1;
 }
 
+.choice-group__option--active::before,
+.choice-group__action--active::before {
+  border-color: var(--button-edge-pink);
+  background: radial-gradient(
+    circle,
+    var(--button-edge-pink) 0 0.22rem,
+    var(--bg-soft-pink) 0.24rem 100%
+  );
+}
+
 .choice-group__option input {
   display: none;
+}
+
+.choice-group__option span,
+.choice-group__action span {
+  text-align: left;
 }
 
 .choice-group__option:not(.choice-group__option--active):hover {
@@ -492,9 +520,10 @@ button,
   --button-shadow-stack-hover: var(--pink-shadow-stack-hover);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.55rem;
   min-height: 3rem;
+  padding: 0.65rem 0.95rem;
   border-radius: 16px;
   border: 3px solid var(--button-edge-color);
   background-color: var(--button-background);
