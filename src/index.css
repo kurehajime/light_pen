@@ -5,8 +5,8 @@
   color: var(--text-main);
   background-color: var(--bg-main);
   --theme-bg: #ffdf76;
-  --theme-line: #cc78be;
   --theme-cool: #c5e9ea;
+  --theme-line: #6a9ea4;
   --theme-warm: #e66171;
   --bg-main: var(--theme-bg);
   --bg-panel: color-mix(in srgb, var(--theme-bg) 28%, white);
@@ -14,9 +14,9 @@
   --bg-soft-pink: color-mix(in srgb, var(--theme-cool) 30%, white);
   --bg-soft-pink-hover: color-mix(in srgb, var(--theme-cool) 42%, white);
   --bg-canvas: #ffffff;
-  --text-main: color-mix(in srgb, var(--theme-line) 80%, #6f3b68);
+  --text-main: color-mix(in srgb, var(--theme-line) 84%, #34595e);
   --text-accent: var(--theme-line);
-  --text-cool-accent: color-mix(in srgb, var(--theme-cool) 82%, #4f8a90);
+  --text-cool-accent: #6a9ea4;
   --text-inverse: var(--bg-canvas);
   --panel-border-strong: color-mix(in srgb, var(--theme-line) 50%, white);
   --panel-border-soft: color-mix(in srgb, var(--theme-line) 26%, white);
@@ -65,10 +65,6 @@
   --modal-backdrop: color-mix(in srgb, var(--theme-line) 42%, transparent);
   --input-accent: var(--theme-warm);
   --error-accent: var(--theme-warm);
-  --icon-filter-cool:
-    brightness(0) saturate(100%)
-    invert(70%) sepia(18%) saturate(545%) hue-rotate(137deg)
-    brightness(86%) contrast(88%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -84,7 +80,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--bg-main);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='144' height='144' viewBox='0 0 144 144'%3E%3Ccircle cx='24' cy='24' r='3' fill='%23cc78be'/%3E%3Ccircle cx='72' cy='60' r='3' fill='%23c5e9ea'/%3E%3Ccircle cx='120' cy='28' r='3' fill='%23e66171'/%3E%3Ccircle cx='48' cy='96' r='3' fill='%23fff0b8'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='144' height='144' viewBox='0 0 144 144'%3E%3Ccircle cx='24' cy='24' r='3' fill='%236a9ea4'/%3E%3Ccircle cx='72' cy='60' r='3' fill='%23c5e9ea'/%3E%3Ccircle cx='120' cy='28' r='3' fill='%23e66171'/%3E%3Ccircle cx='48' cy='96' r='3' fill='%23fff0b8'/%3E%3C/svg%3E");
   background-size: 144px 144px;
 }
 

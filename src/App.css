@@ -306,7 +306,6 @@ button,
   height: 1.6rem;
   object-fit: contain;
   flex: 0 0 auto;
-  filter: var(--icon-filter-cool);
 }
 
 .mode-button__label {
@@ -500,7 +499,6 @@ button,
   height: 1.3rem;
   object-fit: contain;
   flex: 0 0 auto;
-  filter: var(--icon-filter-cool);
 }
 
 .control-empty {
@@ -576,7 +574,6 @@ button:not(:disabled):not(.mode-button--active):not(.choice-group__action--activ
   width: 1.2rem;
   height: 1.2rem;
   object-fit: contain;
-  filter: var(--icon-filter-cool);
 }
 
 .preview-modal {
