@@ -37,7 +37,7 @@ button,
   width: clamp(0.95rem, 2.5vw, 1.3rem);
   height: clamp(0.95rem, 2.5vw, 1.3rem);
   flex: 0 0 auto;
-  border-radius: 16px;
+  border-radius: 0;
   object-fit: cover;
 }
 
@@ -49,8 +49,6 @@ button,
   line-height: 1.05;
   letter-spacing: 0.03em;
   transform: translateY(-0.06em);
-  -webkit-text-stroke: 0.8px #ffffff;
-  paint-order: stroke fill;
 }
 
 .image-area {
@@ -65,8 +63,9 @@ button,
   width: 100%;
   min-height: 320px;
   overflow: hidden;
+  border: 4px solid var(--panel-border-strong);
   background: var(--bg-canvas);
-  box-shadow: var(--panel-surface-shadow);
+  box-shadow: none;
 }
 
 .canvas-stack--intro {
@@ -222,9 +221,10 @@ button,
 
 .control-panel {
   min-width: 0;
+  border: 4px solid var(--panel-border-strong);
   border-radius: 20px;
   background: var(--bg-panel);
-  box-shadow: var(--panel-surface-shadow);
+  box-shadow: none;
   padding: 0.8rem;
 }
 
