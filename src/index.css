@@ -6,28 +6,29 @@
   background-color: var(--bg-main);
   --theme-bg: #ffdf76;
   --theme-cool: #c5e9ea;
-  --theme-line: #6a9ea4;
-  --theme-warm: #cc78be;
+  --theme-line: #0f9dad;
+  --theme-warm: #e44e92;
   --bg-main: var(--theme-bg);
   --bg-panel: color-mix(in srgb, var(--theme-bg) 28%, white);
   --bg-pink: color-mix(in srgb, var(--theme-cool) 72%, #79b9bd);
-  --bg-soft-pink: color-mix(in srgb, var(--theme-cool) 30%, white);
+  --bg-soft-pink: var(--theme-cool);
   --bg-soft-pink-hover: color-mix(in srgb, var(--theme-cool) 42%, white);
   --bg-canvas: #ffffff;
   --text-main: color-mix(in srgb, var(--theme-line) 84%, #34595e);
   --text-accent: var(--theme-line);
-  --text-cool-accent: #6a9ea4;
+  --text-cool-accent: #0f9dad;
   --text-inverse: var(--bg-canvas);
   --panel-border-strong: color-mix(in srgb, var(--theme-line) 50%, white);
   --panel-border-soft: color-mix(in srgb, var(--theme-line) 26%, white);
   --button-main: var(--theme-warm);
-  --button-main-strong: color-mix(in srgb, var(--theme-warm) 86%, #9a4f8f);
+  --button-main-strong: color-mix(in srgb, var(--theme-warm) 86%, #b7326d);
   --button-main-emphasis: color-mix(in srgb, var(--theme-warm) 84%, white);
   --button-main-emphasis-hover: color-mix(in srgb, var(--theme-warm) 92%, white);
   --button-disabled: color-mix(in srgb, var(--theme-line) 28%, white);
-  --button-edge-pink: color-mix(in srgb, var(--theme-cool) 72%, #71b6ba);
-  --button-edge-main: color-mix(in srgb, var(--theme-warm) 72%, #8b4f81);
-  --button-edge-main-hover: color-mix(in srgb, var(--theme-warm) 82%, #8b4f81);
+  --button-edge-pink: #0f9dad;
+  --button-shadow-edge-pink: #0f9dad;
+  --button-edge-main: color-mix(in srgb, var(--theme-warm) 72%, #ad2f68);
+  --button-edge-main-hover: color-mix(in srgb, var(--theme-warm) 82%, #ad2f68);
   --button-edge-selected: color-mix(in srgb, var(--theme-cool) 82%, #5e9ea4);
   --button-edge-disabled: color-mix(in srgb, var(--theme-line) 48%, white);
   --button-shadow-pink: color-mix(in srgb, var(--theme-cool) 34%, transparent);
@@ -37,24 +38,17 @@
   --button-shadow-pressed: color-mix(in srgb, var(--theme-cool) 26%, transparent);
   --button-shadow-disabled: color-mix(in srgb, var(--theme-line) 18%, transparent);
   --pink-shadow-stack:
-    0 6px 0 var(--button-edge-pink),
-    0 11px 18px var(--button-shadow-pink);
+    0 5px 0 var(--button-shadow-edge-pink);
   --pink-shadow-stack-hover:
-    0 3px 0 var(--button-edge-pink),
-    0 7px 12px var(--button-shadow-pink-hover);
+    0 2px 0 var(--button-shadow-edge-pink);
   --main-shadow-stack:
-    0 6px 0 var(--button-edge-main),
-    0 11px 18px var(--button-shadow-main);
+    0 5px 0 var(--button-edge-main);
   --main-shadow-stack-hover:
-    0 3px 0 var(--button-edge-main-hover),
-    0 7px 12px var(--button-shadow-main-hover);
+    0 2px 0 var(--button-edge-main-hover);
   --pink-pressed-shadow-stack:
-    inset 0 4px 8px var(--button-shadow-pressed),
-    inset 0 -2px 0 rgba(255, 255, 255, 0.5),
     0 2px 0 var(--button-edge-selected);
   --disabled-shadow-stack:
-    0 4px 0 var(--button-edge-disabled),
-    0 8px 14px var(--button-shadow-disabled);
+    0 3px 0 var(--button-edge-disabled);
   --button-soft-gradient: none;
   --button-soft-gradient-strong: none;
   --intro-shell-background: color-mix(in srgb, var(--theme-bg) 38%, white);

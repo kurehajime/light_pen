@@ -358,16 +358,21 @@ button,
 }
 
 .mode-button--active {
-  --button-background: var(--bg-pink);
-  --button-background-hover: var(--bg-pink);
-  --button-edge-color: var(--button-edge-selected);
+  --button-background: var(--text-cool-accent);
+  --button-background-hover: var(--text-cool-accent);
+  --button-edge-color: var(--text-cool-accent);
   --button-shadow-stack: var(--pink-pressed-shadow-stack);
   --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
   transform: translateY(4px);
   border-color: var(--button-edge-color);
   background: var(--button-background);
   box-shadow: var(--button-shadow-stack);
+  color: var(--bg-soft-pink);
   z-index: 1;
+}
+
+.mode-button--active .mode-button__icon {
+  filter: brightness(0) saturate(100%) invert(93%) sepia(14%) saturate(318%) hue-rotate(144deg) brightness(103%) contrast(94%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -443,12 +448,13 @@ button,
 }
 
 .choice-group__option--active {
-  --button-background: var(--bg-pink);
-  --button-background-hover: var(--bg-pink);
-  --button-edge-color: var(--button-edge-selected);
+  --button-background: var(--text-cool-accent);
+  --button-background-hover: var(--text-cool-accent);
+  --button-edge-color: var(--text-cool-accent);
   --button-shadow-stack: var(--pink-pressed-shadow-stack);
   --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
   transform: translateY(4px);
+  color: var(--bg-soft-pink);
   z-index: 1;
 }
 
@@ -486,12 +492,17 @@ button,
 }
 
 .choice-group__action--active {
-  --button-background: var(--bg-pink);
-  --button-background-hover: var(--bg-pink);
-  --button-edge-color: var(--button-edge-selected);
+  --button-background: var(--text-cool-accent);
+  --button-background-hover: var(--text-cool-accent);
+  --button-edge-color: var(--text-cool-accent);
   --button-shadow-stack: var(--pink-pressed-shadow-stack);
   --button-shadow-stack-hover: var(--pink-pressed-shadow-stack);
   transform: translateY(4px);
+  color: var(--bg-soft-pink);
+}
+
+.choice-group__action--active .choice-group__icon {
+  filter: brightness(0) saturate(100%) invert(93%) sepia(14%) saturate(318%) hue-rotate(144deg) brightness(103%) contrast(94%);
 }
 
 .choice-group__icon {
