@@ -7,7 +7,7 @@
   --theme-bg: #ffdf76;
   --theme-cool: #c5e9ea;
   --theme-line: #6a9ea4;
-  --theme-warm: #e66171;
+  --theme-warm: #cc78be;
   --bg-main: var(--theme-bg);
   --bg-panel: color-mix(in srgb, var(--theme-bg) 28%, white);
   --bg-pink: color-mix(in srgb, var(--theme-cool) 72%, #79b9bd);
@@ -21,13 +21,13 @@
   --panel-border-strong: color-mix(in srgb, var(--theme-line) 50%, white);
   --panel-border-soft: color-mix(in srgb, var(--theme-line) 26%, white);
   --button-main: var(--theme-warm);
-  --button-main-strong: color-mix(in srgb, var(--theme-warm) 86%, #bc3c57);
+  --button-main-strong: color-mix(in srgb, var(--theme-warm) 86%, #9a4f8f);
   --button-main-emphasis: color-mix(in srgb, var(--theme-warm) 84%, white);
   --button-main-emphasis-hover: color-mix(in srgb, var(--theme-warm) 92%, white);
   --button-disabled: color-mix(in srgb, var(--theme-line) 28%, white);
   --button-edge-pink: color-mix(in srgb, var(--theme-cool) 72%, #71b6ba);
-  --button-edge-main: color-mix(in srgb, var(--theme-warm) 72%, #a74457);
-  --button-edge-main-hover: color-mix(in srgb, var(--theme-warm) 82%, #a74457);
+  --button-edge-main: color-mix(in srgb, var(--theme-warm) 72%, #8b4f81);
+  --button-edge-main-hover: color-mix(in srgb, var(--theme-warm) 82%, #8b4f81);
   --button-edge-selected: color-mix(in srgb, var(--theme-cool) 82%, #5e9ea4);
   --button-edge-disabled: color-mix(in srgb, var(--theme-line) 48%, white);
   --button-shadow-pink: color-mix(in srgb, var(--theme-cool) 34%, transparent);
@@ -80,7 +80,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--bg-main);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='144' height='144' viewBox='0 0 144 144'%3E%3Ccircle cx='24' cy='24' r='3' fill='%236a9ea4'/%3E%3Ccircle cx='72' cy='60' r='3' fill='%23c5e9ea'/%3E%3Ccircle cx='120' cy='28' r='3' fill='%23e66171'/%3E%3Ccircle cx='48' cy='96' r='3' fill='%23fff0b8'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='144' height='144' viewBox='0 0 144 144'%3E%3Ccircle cx='24' cy='24' r='3' fill='%236a9ea4'/%3E%3Ccircle cx='72' cy='60' r='3' fill='%23c5e9ea'/%3E%3Ccircle cx='120' cy='28' r='3' fill='%23cc78be'/%3E%3Ccircle cx='48' cy='96' r='3' fill='%23fff0b8'/%3E%3C/svg%3E");
   background-size: 144px 144px;
 }
 
