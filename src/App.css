@@ -49,7 +49,7 @@ button,
   line-height: 1.05;
   letter-spacing: 0.03em;
   transform: translateY(-0.06em);
-  -webkit-text-stroke: 0.45px #ffffff;
+  -webkit-text-stroke: 0.8px #ffffff;
   paint-order: stroke fill;
 }
 
@@ -66,7 +66,7 @@ button,
   min-height: 320px;
   overflow: hidden;
   background: var(--bg-canvas);
-  border: 3px solid var(--panel-border-strong);
+  box-shadow: var(--panel-surface-shadow);
 }
 
 .canvas-stack--intro {
@@ -122,7 +122,6 @@ button,
   margin: 0;
   padding: 0.55rem 0.2rem;
   border-radius: 24px;
-  border: 3px solid var(--panel-border-soft);
   background: var(--bg-panel);
   box-shadow: var(--intro-card-shadow);
 }
@@ -230,8 +229,8 @@ button,
 .control-panel {
   min-width: 0;
   border-radius: 20px;
-  border: 3px solid var(--panel-border-strong);
   background: var(--bg-panel);
+  box-shadow: var(--panel-surface-shadow);
   padding: 0.8rem;
 }
 
@@ -603,8 +602,8 @@ button:not(:disabled):not(.mode-button--active):not(.choice-group__action--activ
   max-height: calc(100vh - 2rem);
   overflow: auto;
   background: var(--bg-panel);
-  border: 3px solid var(--panel-border-strong);
   border-radius: 24px;
+  box-shadow: var(--panel-surface-shadow);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -628,8 +627,8 @@ button:not(:disabled):not(.mode-button--active):not(.choice-group__action--activ
 .preview-modal__image {
   width: 100%;
   display: block;
-  border: 3px solid var(--panel-border-soft);
   background: var(--bg-canvas);
+  box-shadow: var(--panel-image-shadow);
 }
 
 .error {

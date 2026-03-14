@@ -18,8 +18,8 @@
   --text-accent: var(--theme-line);
   --text-cool-accent: #0f9dad;
   --text-inverse: var(--bg-canvas);
-  --panel-border-strong: color-mix(in srgb, var(--theme-line) 50%, white);
-  --panel-border-soft: color-mix(in srgb, var(--theme-line) 26%, white);
+  --panel-border-strong: var(--theme-line);
+  --panel-border-soft: var(--theme-line);
   --button-main: var(--theme-warm);
   --button-main-strong: color-mix(in srgb, var(--theme-warm) 86%, #b7326d);
   --button-main-emphasis: color-mix(in srgb, var(--theme-warm) 84%, white);
@@ -52,12 +52,12 @@
   --button-soft-gradient: none;
   --button-soft-gradient-strong: none;
   --intro-shell-background: color-mix(in srgb, var(--theme-bg) 38%, white);
-  --intro-card-shadow:
-    inset 0 3px 0 rgba(255, 255, 255, 0.9),
-    0 6px 14px color-mix(in srgb, var(--button-edge-pink) 18%, transparent);
+  --panel-surface-shadow: 0 8px 18px color-mix(in srgb, var(--theme-line) 18%, transparent);
+  --panel-image-shadow: 0 6px 14px color-mix(in srgb, var(--theme-line) 16%, transparent);
+  --intro-card-shadow: 0 6px 14px color-mix(in srgb, var(--theme-bg) 34%, transparent);
   --arrow-accent: var(--theme-warm);
   --modal-backdrop: color-mix(in srgb, var(--theme-line) 42%, transparent);
-  --input-accent: var(--theme-warm);
+  --input-accent: var(--theme-line);
   --error-accent: var(--theme-warm);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
