@@ -57,8 +57,8 @@
   --button-soft-gradient: none;
   --button-soft-gradient-strong: none;
   --intro-shell-background: color-mix(in srgb, var(--theme-bg) 38%, var(--bg-canvas));
-  --panel-surface-shadow: 0 8px 18px color-mix(in srgb, var(--theme-line) 18%, transparent);
-  --panel-image-shadow: 0 6px 14px color-mix(in srgb, var(--theme-line) 16%, transparent);
+  --panel-surface-shadow: 6px 6px 0 color-mix(in srgb, var(--theme-line) 24%, transparent);
+  --panel-image-shadow: 4px 4px 0 color-mix(in srgb, var(--theme-line) 18%, transparent);
   --intro-card-shadow: 0 6px 14px color-mix(in srgb, var(--theme-bg) 34%, transparent);
   --arrow-accent: var(--theme-warm);
   --modal-backdrop: color-mix(in srgb, var(--theme-line) 42%, transparent);
@@ -79,13 +79,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--bg-main);
-  background-image: repeating-linear-gradient(
-    -45deg,
-    color-mix(in srgb, var(--bg-canvas) 18%, transparent) 0 14px,
-    transparent 14px 28px
-  );
-  background-size: 40px 40px;
-  background-repeat: repeat;
 }
 
 a {
