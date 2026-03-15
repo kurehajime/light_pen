@@ -117,7 +117,7 @@ button,
 .image-intro__lead {
   margin: 0;
   text-align: center;
-  font-size: clamp(0.98rem, 2.8vw, 1.12rem);
+  font-size: clamp(1.08rem, 3.1vw, 1.24rem);
   font-weight: 700;
   color: var(--text-accent);
 }
@@ -131,10 +131,23 @@ button,
 
 .image-intro__card {
   margin: 0;
-  padding: 0.55rem 0.2rem;
-  border-radius: 0;
-  background: var(--bg-panel);
-  box-shadow: var(--intro-card-shadow);
+  padding: 0.55rem 0.3rem;
+  border: 0;
+  border-radius: 52px 18px 60px 24px / 28px 64px 22px 58px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.image-intro__examples > .image-intro__card {
+  border-radius: 62px 16px 48px 30px / 26px 70px 20px 54px;
+}
+
+.image-intro__after-group > .image-intro__card:first-child {
+  border-radius: 24px 58px 18px 66px / 52px 22px 60px 28px;
+}
+
+.image-intro__after-group > .image-intro__card:last-child {
+  border-radius: 68px 22px 54px 16px / 30px 62px 24px 56px;
 }
 
 .image-intro__image {
@@ -146,9 +159,9 @@ button,
 }
 
 .image-intro__caption {
-  margin-top: 0.55rem;
+  margin-top: 0.25rem;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--text-accent);

@@ -60,7 +60,7 @@
   --panel-surface-shadow: 6px 6px 0 color-mix(in srgb, var(--theme-line) 24%, transparent);
   --panel-image-shadow: 4px 4px 0 color-mix(in srgb, var(--theme-line) 18%, transparent);
   --intro-card-shadow: 0 6px 14px color-mix(in srgb, var(--theme-bg) 34%, transparent);
-  --arrow-accent: var(--theme-warm);
+  --arrow-accent: var(--panel-border-strong);
   --modal-backdrop: color-mix(in srgb, var(--theme-line) 42%, transparent);
   --input-accent: var(--text-accent);
   --error-accent: var(--theme-warm);
