@@ -184,6 +184,7 @@ button,
   width: min(100%, 16rem);
   margin: 0 auto;
   padding: 0.9rem 1.2rem;
+  border-radius: 82px 24px 58px 30px / 28px 56px 34px 62px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -284,13 +285,13 @@ button,
 }
 
 .mode-button--joined-start {
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-top-left-radius: 62px 24px;
+  border-bottom-left-radius: 34px 56px;
 }
 
 .mode-button--joined-end {
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-top-right-radius: 28px 60px;
+  border-bottom-right-radius: 54px 26px;
 }
 
 .mode-button--joined:not(.mode-button--active):hover {
@@ -317,8 +318,20 @@ button,
   aspect-ratio: auto;
   min-height: 3.3rem;
   padding: 0.4rem 0.2rem;
-  border-radius: 16px;
+  border-radius: 68px 24px 42px 30px / 24px 58px 30px 54px;
   color: var(--text-cool-accent);
+}
+
+.control-panel--mode > .mode-button--action:first-child {
+  border-radius: 76px 18px 48px 26px / 22px 52px 28px 58px;
+}
+
+.control-panel--mode > .mode-button--action:nth-child(3) {
+  border-radius: 38px 62px 24px 54px / 48px 22px 56px 28px;
+}
+
+.control-panel--mode > .mode-button--action:nth-child(4) {
+  border-radius: 24px 74px 58px 20px / 40px 26px 34px 60px;
 }
 
 .mode-button--action-emphasis {
@@ -451,7 +464,7 @@ button,
   min-width: 0;
   min-height: 2.9rem;
   padding: 0.65rem 0.95rem;
-  border-radius: 16px;
+  border-radius: 54px 20px 42px 26px / 22px 48px 30px 52px;
   border: 3px solid var(--button-edge-color);
   background-color: var(--button-background);
   background-image: var(--button-soft-gradient);
@@ -463,6 +476,14 @@ button,
     transform 0.12s ease,
     box-shadow 0.12s ease,
     background-color 0.2s ease;
+}
+
+.choice-group__option:nth-of-type(2) {
+  border-radius: 26px 58px 34px 46px / 44px 18px 52px 24px;
+}
+
+.choice-group__option:nth-of-type(3) {
+  border-radius: 48px 28px 62px 18px / 20px 54px 26px 42px;
 }
 
 .choice-group__option::before {
@@ -521,7 +542,7 @@ button,
   gap: 0.55rem;
   min-height: 3rem;
   padding: 0.65rem 0.95rem;
-  border-radius: 16px;
+  border-radius: 58px 26px 38px 22px / 24px 52px 28px 46px;
   border: 3px solid var(--button-edge-color);
   background-color: var(--button-background);
   background-image: var(--button-soft-gradient);
@@ -531,6 +552,10 @@ button,
     transform 0.12s ease,
     box-shadow 0.12s ease,
     background-color 0.2s ease;
+}
+
+.choice-group__action:nth-of-type(2) {
+  border-radius: 32px 64px 26px 52px / 50px 20px 44px 28px;
 }
 
 .choice-group__action--active {
@@ -572,7 +597,7 @@ button {
   --button-edge-color: var(--button-edge-main);
   --button-shadow-stack: var(--main-shadow-stack);
   --button-shadow-stack-hover: var(--main-shadow-stack-hover);
-  border-radius: 16px;
+  border-radius: 60px 22px 40px 28px / 24px 54px 30px 46px;
   border: 3px solid var(--button-edge-color);
   background-color: var(--button-background);
   background-image: var(--button-soft-gradient);
@@ -610,8 +635,12 @@ button:not(:disabled):not(.mode-button--active):not(.choice-group__action--activ
   --button-shadow-stack-hover: var(--pink-shadow-stack-hover);
   min-height: 2.5rem;
   padding: 0.45rem 0.9rem;
-  border-radius: 14px;
+  border-radius: 48px 18px 34px 24px / 20px 42px 26px 38px;
   color: var(--text-cool-accent);
+}
+
+.subtle-button--share {
+  border-radius: 22px 56px 44px 18px / 38px 20px 48px 24px;
 }
 
 .subtle-button--share {
