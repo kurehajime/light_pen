@@ -1,6 +1,8 @@
 # kiradeco_maker
+異常にキラキラする画像をつくれるやつ(要HDR環境)
 
-HDR対応環境で見るとピカピカに光るペンでお絵かきします。
+https://kurehajime.github.io/kiradeco_maker/
+
 
 ## UltraHDR セットアップ
 
