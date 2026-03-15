@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { EditorMode, EffectType, PenType, StampType } from '../editorTypes'
-import { CheckIcon, EffectIcon, ImageIcon, KiraIcon, PenIcon, StampIcon, UndoIcon } from '../icons'
+import { CheckIcon, EffectIcon, HeartIcon, ImageIcon, KiraIcon, PenIcon, StampIcon, StarIcon, UndoIcon } from '../icons'
 import type { SizeBounds } from '../lib/editorSizing'
 
 type ControlBoardProps = {
@@ -144,6 +144,7 @@ export function ControlBoard({
                   checked={penType === 'plain'}
                   onChange={() => setPenType('plain')}
                 />
+                <PenIcon className="choice-group__option-icon" aria-hidden="true" />
                 <span>{t('controls.plain')}</span>
               </label>
               <label
@@ -160,6 +161,7 @@ export function ControlBoard({
                   checked={penType === 'heart'}
                   onChange={() => setPenType('heart')}
                 />
+                <HeartIcon className="choice-group__option-icon" aria-hidden="true" />
                 <span>{t('controls.heart')}</span>
               </label>
               <label
@@ -176,6 +178,7 @@ export function ControlBoard({
                   checked={penType === 'star'}
                   onChange={() => setPenType('star')}
                 />
+                <StarIcon className="choice-group__option-icon" aria-hidden="true" />
                 <span>{t('controls.star')}</span>
               </label>
             </fieldset>
@@ -211,6 +214,7 @@ export function ControlBoard({
                   checked={stampType === 'heart'}
                   onChange={() => setStampType('heart')}
                 />
+                <HeartIcon className="choice-group__option-icon" aria-hidden="true" />
                 <span>{t('controls.heart')}</span>
               </label>
               <label
@@ -227,6 +231,7 @@ export function ControlBoard({
                   checked={stampType === 'star'}
                   onChange={() => setStampType('star')}
                 />
+                <StarIcon className="choice-group__option-icon" aria-hidden="true" />
                 <span>{t('controls.star')}</span>
               </label>
             </fieldset>
