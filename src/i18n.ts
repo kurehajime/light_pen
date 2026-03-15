@@ -50,7 +50,7 @@ const resources = {
       preview: {
         dialogAriaLabel: '生成プレビュー',
         close: 'とじる',
-        heading: 'できあがり',
+        heading: '完成',
         sharing: 'シェア中',
         share: 'シェアする',
         imageAlt: '生成された画像のプレビュー',
