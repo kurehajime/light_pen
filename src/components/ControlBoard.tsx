@@ -54,6 +54,7 @@ export function ControlBoard({
   undoCount,
 }: ControlBoardProps) {
   const { t } = useTranslation()
+  const detailViewKey = isGenerateMenuOpen ? 'generate' : editorMode
 
   return (
     <section className="control-board">
@@ -123,169 +124,171 @@ export function ControlBoard({
       </div>
 
       <div className="control-panel control-panel--detail">
-        {isGenerateMenuOpen ? (
-          <fieldset
-            id="generate-menu"
-            className="choice-group"
-            aria-label={t('controls.generateOptionsAriaLabel')}
-          >
-            <legend>{t('controls.generateOptionsAriaLabel')}</legend>
-            <button
-              type="button"
-              className="choice-group__action choice-group__action--primary"
-              onClick={onGenerate}
+        <div key={detailViewKey} className="control-panel__detail-content">
+          {isGenerateMenuOpen ? (
+            <fieldset
+              id="generate-menu"
+              className="choice-group"
+              aria-label={t('controls.generateOptionsAriaLabel')}
             >
-              <ImageIcon className="choice-group__icon" aria-hidden="true" />
-              <span>{t('controls.generateImage')}</span>
-            </button>
-            <button
-              type="button"
-              className="choice-group__action"
-              onClick={onGenerateX}
-            >
-              <ImageIcon className="choice-group__icon" aria-hidden="true" />
-              <span>{t('controls.generateXImage')}</span>
-            </button>
-          </fieldset>
-        ) : editorMode === 'pen' ? (
-          <>
-            <label className="control-range">
-              <span>{t('controls.penSize')}</span>
-              <input
-                type="range"
-                min={sizeBounds.min}
-                max={sizeBounds.max}
-                value={penSize}
-                onChange={(event) => setPenSize(Number(event.target.value))}
-              />
-              <strong>{penSize}px</strong>
-            </label>
-            <fieldset className="choice-group">
-              <legend>{t('controls.penType')}</legend>
-              <label
-                className={
-                  penType === 'plain'
-                    ? 'choice-group__option choice-group__option--active'
-                    : 'choice-group__option'
-                }
+              <legend>{t('controls.generateOptionsAriaLabel')}</legend>
+              <button
+                type="button"
+                className="choice-group__action choice-group__action--primary"
+                onClick={onGenerate}
               >
-                <input
-                  type="radio"
-                  name="penType"
-                  value="plain"
-                  checked={penType === 'plain'}
-                  onChange={() => setPenType('plain')}
-                />
-                <PenIcon className="choice-group__option-icon" aria-hidden="true" />
-                <span>{t('controls.plain')}</span>
-              </label>
-              <label
-                className={
-                  penType === 'heart'
-                    ? 'choice-group__option choice-group__option--active'
-                    : 'choice-group__option'
-                }
+                <ImageIcon className="choice-group__icon" aria-hidden="true" />
+                <span>{t('controls.generateImage')}</span>
+              </button>
+              <button
+                type="button"
+                className="choice-group__action"
+                onClick={onGenerateX}
               >
-                <input
-                  type="radio"
-                  name="penType"
-                  value="heart"
-                  checked={penType === 'heart'}
-                  onChange={() => setPenType('heart')}
-                />
-                <HeartIcon className="choice-group__option-icon" aria-hidden="true" />
-                <span>{t('controls.heart')}</span>
-              </label>
-              <label
-                className={
-                  penType === 'star'
-                    ? 'choice-group__option choice-group__option--active'
-                    : 'choice-group__option'
-                }
-              >
-                <input
-                  type="radio"
-                  name="penType"
-                  value="star"
-                  checked={penType === 'star'}
-                  onChange={() => setPenType('star')}
-                />
-                <StarIcon className="choice-group__option-icon" aria-hidden="true" />
-                <span>{t('controls.star')}</span>
-              </label>
+                <ImageIcon className="choice-group__icon" aria-hidden="true" />
+                <span>{t('controls.generateXImage')}</span>
+              </button>
             </fieldset>
-          </>
-        ) : editorMode === 'stamp' ? (
-          <>
-            <label className="control-range">
-              <span>{t('controls.stampSize')}</span>
-              <input
-                type="range"
-                min={sizeBounds.min}
-                max={sizeBounds.max}
-                value={stampSize}
-                onChange={(event) => setStampSize(Number(event.target.value))}
-              />
-              <strong>{stampSize}px</strong>
-            </label>
+          ) : editorMode === 'pen' ? (
+            <>
+              <label className="control-range">
+                <span>{t('controls.penSize')}</span>
+                <input
+                  type="range"
+                  min={sizeBounds.min}
+                  max={sizeBounds.max}
+                  value={penSize}
+                  onChange={(event) => setPenSize(Number(event.target.value))}
+                />
+                <strong>{penSize}px</strong>
+              </label>
+              <fieldset className="choice-group">
+                <legend>{t('controls.penType')}</legend>
+                <label
+                  className={
+                    penType === 'plain'
+                      ? 'choice-group__option choice-group__option--active'
+                      : 'choice-group__option'
+                  }
+                >
+                  <input
+                    type="radio"
+                    name="penType"
+                    value="plain"
+                    checked={penType === 'plain'}
+                    onChange={() => setPenType('plain')}
+                  />
+                  <PenIcon className="choice-group__option-icon" aria-hidden="true" />
+                  <span>{t('controls.plain')}</span>
+                </label>
+                <label
+                  className={
+                    penType === 'heart'
+                      ? 'choice-group__option choice-group__option--active'
+                      : 'choice-group__option'
+                  }
+                >
+                  <input
+                    type="radio"
+                    name="penType"
+                    value="heart"
+                    checked={penType === 'heart'}
+                    onChange={() => setPenType('heart')}
+                  />
+                  <HeartIcon className="choice-group__option-icon" aria-hidden="true" />
+                  <span>{t('controls.heart')}</span>
+                </label>
+                <label
+                  className={
+                    penType === 'star'
+                      ? 'choice-group__option choice-group__option--active'
+                      : 'choice-group__option'
+                  }
+                >
+                  <input
+                    type="radio"
+                    name="penType"
+                    value="star"
+                    checked={penType === 'star'}
+                    onChange={() => setPenType('star')}
+                  />
+                  <StarIcon className="choice-group__option-icon" aria-hidden="true" />
+                  <span>{t('controls.star')}</span>
+                </label>
+              </fieldset>
+            </>
+          ) : editorMode === 'stamp' ? (
+            <>
+              <label className="control-range">
+                <span>{t('controls.stampSize')}</span>
+                <input
+                  type="range"
+                  min={sizeBounds.min}
+                  max={sizeBounds.max}
+                  value={stampSize}
+                  onChange={(event) => setStampSize(Number(event.target.value))}
+                />
+                <strong>{stampSize}px</strong>
+              </label>
+              <fieldset className="choice-group">
+                <legend>{t('controls.stampType')}</legend>
+                <label
+                  className={
+                    stampType === 'heart'
+                      ? 'choice-group__option choice-group__option--active'
+                      : 'choice-group__option'
+                  }
+                >
+                  <input
+                    type="radio"
+                    name="stampType"
+                    value="heart"
+                    checked={stampType === 'heart'}
+                    onChange={() => setStampType('heart')}
+                  />
+                  <HeartIcon className="choice-group__option-icon" aria-hidden="true" />
+                  <span>{t('controls.heart')}</span>
+                </label>
+                <label
+                  className={
+                    stampType === 'star'
+                      ? 'choice-group__option choice-group__option--active'
+                      : 'choice-group__option'
+                  }
+                >
+                  <input
+                    type="radio"
+                    name="stampType"
+                    value="star"
+                    checked={stampType === 'star'}
+                    onChange={() => setStampType('star')}
+                  />
+                  <StarIcon className="choice-group__option-icon" aria-hidden="true" />
+                  <span>{t('controls.star')}</span>
+                </label>
+              </fieldset>
+            </>
+          ) : (
             <fieldset className="choice-group">
-              <legend>{t('controls.stampType')}</legend>
-              <label
+              <legend>{t('controls.effects')}</legend>
+              <button
+                type="button"
                 className={
-                  stampType === 'heart'
-                    ? 'choice-group__option choice-group__option--active'
-                    : 'choice-group__option'
+                  effectType === 'hologram'
+                    ? 'choice-group__action choice-group__action--active'
+                    : 'choice-group__action'
                 }
+                onClick={() => {
+                  void onEffectSelect('hologram')
+                }}
+                disabled={!hasImage}
               >
-                <input
-                  type="radio"
-                  name="stampType"
-                  value="heart"
-                  checked={stampType === 'heart'}
-                  onChange={() => setStampType('heart')}
-                />
-                <HeartIcon className="choice-group__option-icon" aria-hidden="true" />
-                <span>{t('controls.heart')}</span>
-              </label>
-              <label
-                className={
-                  stampType === 'star'
-                    ? 'choice-group__option choice-group__option--active'
-                    : 'choice-group__option'
-                }
-              >
-                <input
-                  type="radio"
-                  name="stampType"
-                  value="star"
-                  checked={stampType === 'star'}
-                  onChange={() => setStampType('star')}
-                />
-                <StarIcon className="choice-group__option-icon" aria-hidden="true" />
-                <span>{t('controls.star')}</span>
-              </label>
+                <KiraIcon className="choice-group__icon" aria-hidden="true" />
+                <span>{t('controls.hologram')}</span>
+              </button>
             </fieldset>
-          </>
-        ) : (
-          <fieldset className="choice-group">
-            <legend>{t('controls.effects')}</legend>
-            <button
-              type="button"
-              className={
-                effectType === 'hologram'
-                  ? 'choice-group__action choice-group__action--active'
-                  : 'choice-group__action'
-              }
-              onClick={() => {
-                void onEffectSelect('hologram')
-              }}
-              disabled={!hasImage}
-            >
-              <KiraIcon className="choice-group__icon" aria-hidden="true" />
-              <span>{t('controls.hologram')}</span>
-            </button>
-          </fieldset>
-        )}
+          )}
+        </div>
       </div>
 
       <a

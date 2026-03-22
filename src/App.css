@@ -443,7 +443,10 @@ button,
 
 @media (prefers-reduced-motion: reduce) {
   .image-intro__button,
-  .mode-button--action-emphasis {
+  .mode-button--action-emphasis,
+  .control-panel__detail-content > *,
+  .control-panel__detail-content .choice-group__option,
+  .control-panel__detail-content .choice-group__action {
     animation: none;
   }
 }
@@ -467,6 +470,40 @@ button,
   }
 }
 
+@keyframes detail-drop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) scaleY(0.92);
+  }
+
+  68% {
+    opacity: 1;
+    transform: translateY(3px) scaleY(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@keyframes detail-item-drop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+
+  72% {
+    opacity: 1;
+    transform: translateY(3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .control-panel--detail {
   display: flex;
@@ -478,6 +515,40 @@ button,
   border-top-right-radius: 0;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.control-panel__detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.control-panel__detail-content > * {
+  animation: detail-drop-in 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.control-panel__detail-content > *:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+.control-panel__detail-content .choice-group__option,
+.control-panel__detail-content .choice-group__action {
+  animation: detail-item-drop-in 0.42s cubic-bezier(0.18, 1, 0.32, 1) both;
+}
+
+.control-panel__detail-content .choice-group__option:nth-of-type(1),
+.control-panel__detail-content .choice-group__action:nth-of-type(1) {
+  animation-delay: 0.05s;
+}
+
+.control-panel__detail-content .choice-group__option:nth-of-type(2),
+.control-panel__detail-content .choice-group__action:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.control-panel__detail-content .choice-group__option:nth-of-type(3),
+.control-panel__detail-content .choice-group__action:nth-of-type(3) {
+  animation-delay: 0.15s;
 }
 
 .choice-group__action--primary {
